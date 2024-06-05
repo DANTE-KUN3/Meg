@@ -21,6 +21,24 @@ function startQuestions() {
 
 }
   
+// script.js
+
+function startQuestions() {
+  document.getElementById('questions').style.display = 'block';
+}
+
+function answerYes() {
+  document.getElementById('messageText').innerText = "Aww, that's sweet!";
+  document.getElementById('message').style.display = 'block';
+  document.getElementById('questions').style.display = 'none';
+}
+
+function answerNo() {
+  document.getElementById('messageText').innerText = "Oh, maybe it takes time!";
+  document.getElementById('message').style.display = 'block';
+  document.getElementById('questions').style.display = 'none';
+}
+
 // Function to show confetti
 function showConfetti() {
     const confettiSettings = {
@@ -36,3 +54,4 @@ function showConfetti() {
     }, 5000);
   }
   
+

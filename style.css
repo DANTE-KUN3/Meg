@@ -4,11 +4,7 @@ body {
     padding-top: 100px;
   }
   
-  .container {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 0 20px;
-  }
+
   
   h1 {
     font-size: 24px;
@@ -67,4 +63,34 @@ body {
       margin-top: 10px;
     }
   }
-  
+  /* style.css */
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+#honeybee {
+  position: absolute;
+  width: 50px; /* Adjust size as needed */
+  animation: moveHoneyBee 10s linear infinite;
+}
+
+
+@keyframes moveHoneyBee {
+  0% {
+      transform: translate(0, 0);
+  }
+  25% {
+      transform: translate(10vw, 10vh);
+  }
+  50% {
+      transform: translate(10vw, 10vh);
+  }
+  75% {
+      transform: translate(10vw, 10vh);
+  }
+  100% {
+      transform: translate(10, 10);
+  }
+}

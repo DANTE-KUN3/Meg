@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meg and Bee</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: url('photos/fullscreen.jpg') no-repeat center top;
+            background-size: cover;
+            animation: backgroundMove 10s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: center top;
+            }
+            100% {
+                background-position: center bottom;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            animation: fadeIn 3s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .sequence {
+            display: none;
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) translateX(20vw);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="init">Meg and Bee story so far...</h1>
+        
+        <div id="sequence1" class="sequence">Meg and Bee met for the first time in the mall(i only speak truth );.</div>
+        <div id="sequence2" class="sequence"> Meg tried to return Bee's dropped wallet.</div>
+        <div id="sequence3" class="sequence">Bee suspected Meg of stealing his money, but later found out she stole his heart❤️.</div>
+        <div id="sequence4" class="sequence">It's her birthday today and I wish all her dreams come true.</div>
+        <div id="sequence5" class="sequence">Meg likes to be with Bee and Bee likes to annoy Meg.</div>
+        <div id="sequence6" class="sequence">To infinity and beyond, Meg and Bee 😼😼😼😼😼 </div>
+        <div id="sequence7" class="sequence">Happy birthday babe muahhhh!!😽😽😼 </div>
+    </div>
+
+    <script>
+        const sequences = [
+            'sequence1',
+            'sequence2',
+            'sequence3',
+            'sequence4',
+            'sequence5',
+            'sequence6','sequence7'
+
+        ];
+
+        let currentIndex = 0;
+
+        function showNextSequence() {
+            if (currentIndex < sequences.length) {
+                const element = document.getElementById(sequences[currentIndex]);
+                element.classList.add('visible');
+                currentIndex++;
+                setTimeout(showNextSequence, 3000); // Adjust the time interval as needed
+            }
+        }
+
+        showNextSequence(); // Start the sequence
+
+        // Function to create floating emojis
+        function createEmoji(emoji) {
+            const emojiElement = document.createElement('div');
+            emojiElement.classList.add('emoji');
+            emojiElement.textContent = emoji;
+            emojiElement.style.left = Math.random() * 100 + 'vw';
+            emojiElement.style.animationDuration = Math.random() * 10 + 5 + 's';
+            document.body.appendChild(emojiElement);
+
+            setTimeout(() => {
+                document.body.removeChild(emojiElement);
+            }, 15000); // Duration longer than animation to ensure removal
+        }
+
+        // Generate floating emojis
+           const emojis = ['🫣', '🐝', '😽', '💖'];
+        setInterval(() => {
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            createEmoji(randomEmoji);
+        }, 1000);
+    </script>
+</body>
+</html>
